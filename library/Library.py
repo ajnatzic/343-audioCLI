@@ -5,7 +5,7 @@ import sys
 from exceptions.CLI_Exception import CLI_Audio_File_Exception
 from exceptions.CLI_Exception import CLI_Audio_Screen_Size_Exception
 
-#Creates a library class that allows playing multiple songs instead of having to
+#Creates a library class that allows searching multiple songs instead of having to
 #type in each one individually
 
 class Library:
@@ -14,6 +14,7 @@ class Library:
         def _init_():
             self.files = os.listdir('./media')
 
+	#shows all created playlists in the media library
         def showLibrary(self, parentView):
 
             changeWindow = curses.newwin(20, 50, 5, 5)
@@ -37,6 +38,8 @@ class Library:
             curses.echo()
             index = changeWindow.getstr(1,1, 1)
 
+	#throws an exception if it cannot find the requested file
+	#used "https://stackoverflow.com/questions/2817264/how-to-get-the-parent-dir-location" to figure out how to navigate directorys in python
             try:
                 if (int(index) > len(files)):
                     parentView.stdscr.addstr(2,15, "Directory not Found!")
