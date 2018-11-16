@@ -88,16 +88,19 @@ class FrontEnd:
         song = self.directory + index
         self.player.play(song)
 
+	#should display the playlist that the player is currently playing
     def displayPlaylist(self):
 
         x = 1
         for song in self.playlist:
             self.stdscr.addstr(15 + x,10, str(x) + ": "+ song)
             x = x + 1
-
+	#sets the root directory
     def setDirectory(self,dir):
         self.directory = dir
 
+	#puts all requested songs into a playlist
+	#used "https://www.tutorialspoint.com/python/os_listdir.htm" to figure out how to use 'listdir()' in python
     def setPlaylist(self):
         self.playlist = []
         songs = os.listdir(self.directory)
