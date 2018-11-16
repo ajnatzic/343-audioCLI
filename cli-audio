@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+from front.FrontEnd import FrontEnd
+from player.Player import Player
+from curses import wrapper
+from library.Library import Library
+from exceptions.CLI_Exception import CLI_Exception
+from exceptions.CLI_Exception import CLI_Audio_File_Exception
+from exceptions.CLI_Exception import CLI_Audio_Screen_Size_Exception
+
+def main():
+    player = Player()
+    library = Library()
+    front_end = FrontEnd(player,library)
+
+if __name__ == "__main__":
+    main()
